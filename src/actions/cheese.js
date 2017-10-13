@@ -23,7 +23,7 @@ export const fetchCheeses = () => dispatch => {
     .then(cheeses => {
       return dispatch(fetchCheesesSuccess(cheeses));
     })
-    .catch(err => {
+    .catch(error => {
       dispatch(fetchCheesesError(error));
     })
 };

@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchCheeses} from '../actions';
+import {fetchCheeses} from '../actions/cheese';
 
-export default class CheeseList extends React.Component {
+export class CheeseList extends React.Component {
   constructor(props) {
     super(props);
   }

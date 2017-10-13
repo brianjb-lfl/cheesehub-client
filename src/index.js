@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
 import CheeseList from './components/cheese-list';
+import cheeseReducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 
 
@@ -13,5 +16,17 @@ const testData =
     "Buxton Blue"
   ];
 
-ReactDOM.render(<CheeseList cheeses={testData}/>, document.getElementById('root'));
-registerServiceWorker();
+export default createStore(
+  cheeseReducer,
+  applyMiddleware(thunk)
+);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <CheeseList />
+  </Provider>,
+  document.getElementById('root')
+);
+
+
+  registerServiceWorker();
